@@ -1,0 +1,74 @@
+{extend name="base" /}
+
+{block name="resources"}
+<link href="__PUBLIC__/json-view/json-viewer.css" rel="stylesheet">
+<style>
+    .main-content .json{
+        float: left;
+        width: 50%;
+        height: auto;
+        padding: 10px 10px 10px 10px;
+        overflow-y: auto;
+    }
+    .main-content .json-input{
+        border-right: 1px solid #dadada;
+    }
+    .main-content .json-output{
+        height: 450px;
+    }
+    #json-renderer{
+        padding: 10px 10px 10px 25px;
+    }
+</style>
+{/block}
+
+{block name="main"}
+<div class="main">
+    <div class="main-head">
+        <span class="title">Json 格式化校验</span> <br>
+        <span class="explain">查看json格式数据，改变左边输入框内容，点击输入框外任意地方</span>
+    </div>
+
+    <div class="main-content">
+        <div class="json json-input">
+            <textarea class="form-control" id="json-input" rows="21" onchange="init_json()" >{
+  "id": 1,
+  "name": "xiao fan",
+  "home": "http://www.shuangdeyu.com/jyj/",
+  "websit": [
+    { "name": "简书", "url": "http://www.jianshu.com/u/567564586749" },
+    { "name": "博客", "url": "http://shuangdeyu.oschina.io/" },
+    { "name": "github", "url": "https://github.com/shuangdeyu" },
+  ]
+}</textarea>
+        </div>
+        <div class="json json-output">
+            <pre id="json-renderer"></pre>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<script src="__PUBLIC__/json-view/json-viewer.js"></script>
+<script type="text/javascript">
+    $(function() {
+        init_json();
+    });
+
+    function init_json(){
+        try {
+            var input = eval('(' + $('#json-input').val() + ')');
+        }
+        catch (error) {
+            return alert("Cannot eval JSON: " + error);
+        }
+        var options = {
+            collapsed: $('#collapsed').is(':checked'),
+            withQuotes: $('#with-quotes').is(':checked')
+        };
+        $('#json-renderer').jsonViewer(input, options);
+    }
+</script>
+{/block}

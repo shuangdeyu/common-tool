@@ -1,0 +1,86 @@
+{extend name="base" /}
+
+{block name="resources"}
+<!-- 添加css、字体文件文件 -->
+<style>
+    .key input{
+        width: 30%;
+        float: left;
+        margin-right: 10px;
+    }
+    .key{
+        height: auto;
+    }
+</style>
+{/block}
+
+{block name="main"}
+<div class="main">
+    <div class="main-head">
+        <span class="title">AES 加密/解密</span> <br>
+        <span class="explain">自用aes加解密</span>
+    </div>
+
+    <div class="main-content">
+        <div class="form-group">
+            <textarea class="form-control encode" rows="9" placeholder="请输入需要加密/解密的字符串" required></textarea>
+        </div>
+        <div class="form-group key">
+            <input type="text" class="form-control secret_key" placeholder="请输入密钥">
+            <input type="text" class="form-control iv" placeholder="请输入偏移量/16个字符" maxlength="16">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" onclick="encrypt(1)">加密</button>
+                <button type="button" class="btn btn-info" onclick="encrypt(2)">解密</button>
+                <button type="button" class="btn btn-danger" onclick="clear_input()">清空</button>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control decode" rows="9" placeholder="加密/解密后的密文"></textarea>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<!-- 添加js文件或代码 -->
+<script>
+    function show(msg){
+        new $.zui.Messager(msg, {
+            icon: 'warning-sign',
+            type: 'danger'
+        }).show();
+    }
+
+    // 加密/解密
+    function encrypt(type) {
+        var str = $(".encode").val();
+        var secret_key = $(".secret_key").val();
+        var iv = $(".iv").val();
+        if (!str) { show("请输入要加密的字符串"); return; }
+        if (!secret_key) { show("请输入密钥"); return; }
+        if (iv.length < 16) { show("偏移量必须是16个字符"); return; }
+        $.ajax({
+            type: "post",
+            url: "URL/encrypt/do",
+            dataType: "json",
+            data: {type: type, str: str, secret_key: secret_key, iv: iv},
+            success: function (res) {
+                if (res.code > 0) {
+                    $(".decode").val(res.data);
+                } else {
+                    show(res.mag);
+                }
+            }
+        })
+    }
+
+    // 清空输入框
+    function clear_input(){
+        $(".encode").val('');
+        $(".secret_key").val('');
+        $(".iv").val('');
+        $(".decode").val('');
+    }
+</script>
+{/block}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" href="__IMG__/favicon.ico" />
+    <title>小工具</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+
+    <link href="__ZUI__/css/zui.min.css" rel="stylesheet">
+    <link href="__CSS__/style.css" rel="stylesheet">
+    <script src="__JS__/jquery-3.1.1.min.js"></script>
+    <!-- ZUI Javascript组件 -->
+    <script src="__ZUI__/js/zui.min.js"></script>
+
+    {block name="resources"}
+    <!-- 添加css、字体文件文件 -->
+    {/block}
+
+</head>
+<body >
+<!--<div class="" style="width: 75%;margin: 0 auto;">-->
+<div class="container-fixed">
+    <!-- 头部 -->
+    {block name="head"}
+        {include file='head' /}
+    {/block}
+
+    <!-- 内容展示 -->
+    {block name="main"}
+    <div class="main">
+        <!-- 主要内容代码 -->
+    </div>
+    {/block}
+
+    <!-- 底部 -->
+    {block name="footer"}
+        {include file='footer' /}
+    {/block}
+</div>
+
+<!-- js资源 -->
+{block name="javascript"}
+<!-- 添加js文件或代码 -->
+{/block}
+</body>
+</html>

@@ -1,0 +1,157 @@
+{extend name="base" /}
+
+{block name="resources"}
+<link href="__PUBLIC__/json-view/json-viewer.css" rel="stylesheet">
+<!--<link href="__PUBLIC__/editor.md/css/editormd.preview.css" rel="stylesheet">-->
+<link href="__PUBLIC__/editor.md/editormd.css" rel="stylesheet">
+<style>
+    .main-content .json{
+        float: left;
+        width: 50%;
+        height: auto;
+        padding: 10px 10px 10px 10px;
+        overflow-y: auto;
+    }
+    .main-content .json-input{
+        border-right: 1px solid #dadada;
+    }
+    .main-content .json-output{
+        height: 450px;
+    }
+    #json-renderer{
+        padding: 10px 10px 10px 25px;
+    }
+</style>
+{/block}
+
+{block name="main"}
+<div class="main">
+    <div class="main-head">
+        <span class="title">Markdown 格式化</span> <br>
+        <span class="explain">查看markdown解析内容，改变左边输入框内容，点击输入框外任意地方</span>
+    </div>
+
+    <div class="main-content">
+        <div class="json json-input">
+            <textarea class="form-control" id="markdown-input" rows="21" onchange="init_markdown()">#### 1、安装svn服务
+检查是否已经安装svn服务
+`# rpm -qa subversion`
+如未安装则下一步安装此服务
+`# yum install subversion`
+经过不漫长的等待，安装好之后检测一样是否正确安装，查看版本号即可
+```
+# svnserve --version
+svnserve，版本 1.7.14 (r1542130)
+```
+
+#### 2、创建代码库
+首先创建一个文件夹用于存放项目
+`# mkdir -p /var/svn/projects`
+然后在此文件夹下创建代码库
+`# svnadmin create /var/svn/projects`
+看到生成了这些目录，就说明创建成功了
+![](http://upload-images.jianshu.io/upload_images/716745-53ff187b3db5f3ca.png)
+
+#### 3、配置代码库
+配置文件在conf目录下，其中 authz 是账号配置，passwd 是账号密码配置，svnserve.conf 是服务器配置
+首先配置可访问svn服务器的账户，其中**[groups]**下面是账户组，多个用户用逗号分开，**[/]**是访问的目录，给其下账户组设置权限为**rw**，表示可读可写
+```
+[groups]
+gro_users = zhangs,lis
+
+[/]
+@gro_users = rw
+```
+然后是passwd配置，给账户组中的用户设置密码就行了
+```
+[users]
+zhangs = 123456
+lis = 123456
+```
+最后是svnserve.conf服务器配置，取消下面几个配置的注释，如果没有则添加进去
+```
+#匿名用户访问的权限，可以是read,write,none
+anon-access = none
+#使授权用户有写权限
+auth-access = write
+#密码数据库的路径
+password-db = passwd
+#访问控制文件的路径
+authz-db = authz
+```
+
+#### 4、启动svn服务
+`# svnserve -d -r /var/svn/projects`
+检查svn是否启动
+```
+# ps -ef|grep svn|grep -v grep
+root  4992  1  0 22:44 ?    00:00:00 svnserve -d -r /var/svn/projects
+```
+需要注意的是svn服务使用的端口是3690，如有必要，请检查一下这个端口是否被占用
+如要停用svn，则使用下面这个命令
+`# killall svnserve`
+
+#### 5、使用svn服务器
+需要在你的客户端下载TortoiseSVN
+从svn服务器上checkout
+![](http://upload-images.jianshu.io/upload_images/716745-9111b0dfcb684ec9.png)
+但是，问题来了
+![](http://upload-images.jianshu.io/upload_images/716745-f8df473f686308fd.png)
+这种情况首先排除网络是否连接，如网络没有问题，那十之八九就是服务器的问题，记得别让svn服务的端口被防火墙给拦了
+`/etc/sysconfig/iptables`
+在防火墙设置文件中加
+`-A INPUT -p tcp -m state --state NEW -m tcp --dport 3690 -j ACCEPT`
+注意，这段代码不能随便加，位置不对并不会企作用，需要加在同类型设置代码的下面
+然后重启防火墙再试试svn，出现如下画面就表示成功配置了svn服务器，然后就可以上传下载项目了
+![](http://upload-images.jianshu.io/upload_images/716745-54d5e6f8de351022.png)
+![](http://upload-images.jianshu.io/upload_images/716745-1d5f64466c577011.png)</textarea>
+        </div>
+        <div class="json json-output">
+            <div id="show-markdown">
+                <textarea style="display:none;" id="markdown-output"></textarea>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<script src="__PUBLIC__/json-view/json-viewer.js"></script>
+<script src="__PUBLIC__/editor.md/editormd.js"></script>
+<script src="__PUBLIC__/editor.md/lib/marked.min.js"></script>
+<script src="__PUBLIC__/editor.md/lib/prettify.min.js"></script>
+<script src="__PUBLIC__/editor.md/lib/raphael.min.js"></script>
+<script src="__PUBLIC__/editor.md/lib/underscore.min.js"></script>
+<script src="__PUBLIC__/editor.md/lib/sequence-diagram.min.js"></script>
+<script src="__PUBLIC__/editor.md/lib/flowchart.min.js"></script>
+<script src="__PUBLIC__/editor.md/lib/jquery.flowchart.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var input = $("#markdown-input").val();
+        $("#markdown-output").val(input);
+        init();
+    });
+
+    function init_markdown(){
+        var input = $("#markdown-input").val();
+        var show = $("#show-markdown");
+        show.empty();
+        var int_html = "<textarea style='display:none;' id='markdown-output'>"+input+"</textarea>";
+        show.append(int_html);
+        init();
+    }
+
+    function init(){
+        var testEditormdView;
+        testEditormdView = editormd.markdownToHTML("show-markdown", {
+            htmlDecode      : "style,script,iframe",
+            emoji           : true,
+            taskList        : true,
+            tex             : true,  // 默认不解析
+            flowChart       : true,  // 默认不解析
+            sequenceDiagram : true   // 默认不解析
+        });
+    }
+</script>
+{/block}

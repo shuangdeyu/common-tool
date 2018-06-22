@@ -1,0 +1,76 @@
+<div class="head">
+    <nav class="navbar " role="navigation">
+        <div class="container-fluid">
+            <!-- 导航头部 -->
+            <div class="navbar-header">
+                <!-- 移动设备上的导航切换按钮 -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-collapse-example">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- 品牌名称或logo -->
+                <a class="navbar-brand" href="URL/index">JTool</a>
+            </div>
+
+            <!-- 导航项目 -->
+            <div class="collapse navbar-collapse navbar-collapse-example">
+                <!-- 一般导航项目 -->
+                <ul class="nav navbar-nav">
+                    <li ><a href="URL/index">首页</a></li>
+                    <li ><a href="URL/json">json格式校验</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">加密/解密<b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="URL/encrypt/aes">AES 加密/解密</a></li>
+                            <li><a href="URL/encrypt/md5">MD5 加密</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">markdown相关<b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="URL/markdown/par">markdown解析</a></li>
+                            <li><a href="URL/markdown/edit">markdown编辑器</a></li>
+                        </ul>
+                    </li>
+                    <li ><a href="URL/translate">翻译</a></li>
+                </ul>
+
+                <!-- 右侧的导航项目 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" data-toggle="modal" data-target="#plugList">清单</a></li>
+                </ul>
+            </div><!-- END .navbar-collapse -->
+        </div>
+    </nav>
+</div>
+
+<div class="modal fade" id="plugList">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>
+                    json-view, json 解析插件
+                </p>
+                <p>
+                    <a href="http://www.jq22.com/jquery-info13551" target="_blank">http://www.jq22.com/jquery-info13551</a>
+                </p>
+                <p>
+                    <br/>
+                </p>
+                <p>
+                    editor.md, 强大的markdow解析组件<br/>
+                </p>
+                <p>
+                    <a href="http://pandao.github.io/editor.md/" target="_blank">http://pandao.github.io/editor.md</a>
+                </p>
+
+                <p> <br/> </p>
+                <p> 百度翻译api<br/> </p>
+                <p> <a href="http://api.fanyi.baidu.com/api/trans/product/index" target="_blank">http://api.fanyi.baidu.com/api/trans/product/index</a> </p>
+            </div>
+        </div>
+    </div>
+</div>

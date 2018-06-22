@@ -1,0 +1,95 @@
+{extend name="base" /}
+
+{block name="resources"}
+<!-- 添加css、字体文件文件 -->
+<style>
+    .main-content .json{
+        float: left;
+        width: 50%;
+        height: auto;
+        padding: 10px 10px 10px 10px;
+        overflow-y: auto;
+    }
+    .main-content textarea{
+        font-size: 20px;
+    }
+    .main-content .input{
+        border-right: 1px solid #dadada;
+    }
+    .main-content .output textarea{
+        background-color: #f1f1f1;
+    }
+</style>
+{/block}
+
+{block name="main"}
+<div class="main">
+    <div class="main-head">
+        <span class="title">简单翻译</span> <br>
+        <span class="explain">简单的中英文翻译</span>
+    </div>
+
+    <div class="main-content">
+        <div class="json input">
+            <textarea class="form-control" id="Input" rows="7" ></textarea>
+            <div class="pull-right" style="padding-top: 15px;">
+                <button class="btn btn-primary" type="button" onclick="fanyi()">翻译</button>
+            </div>
+        </div>
+        <div class="json output">
+            <textarea class="form-control" id="Output" rows="7" ></textarea>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<!-- 添加js文件或代码 -->
+<script>
+    function show(msg){
+        new $.zui.Messager(msg, {
+            icon: 'warning-sign',
+            type: 'danger'
+        }).show();
+    }
+
+    function fanyi(){
+        var input = $("#Input").val();
+
+        var from = 'en';var to = "zh";
+        if( input.match( /^[\u4E00-\u9FA5]/) ){
+            from = 'zh';to = "en";
+        }else if( input.match( /^[A-Za-z]/) ){
+            from = 'to';to = "zh";
+        }else{
+            show("请输入汉字或者英文");
+            return;
+        }
+
+        $.ajax({
+            type: "post",
+            url: "URL/translate/do",
+            dataType: "json",
+            data: {input:input, from:from, to:to},
+            success: function(res){
+                //console.log(res);
+                if(res.code == 1){
+                    var in_text = "";
+                    $.each(res.data.trans_result,function(k, v){
+                        in_text += v.dst+"\n";
+                    });
+                    $("#Output").val(in_text);
+                }else{
+                    show("翻译错误");
+                }
+            },
+            error: function(res){
+                //console.log(res);
+                show("通信错误");
+            }
+        });
+    }
+
+</script>
+{/block}

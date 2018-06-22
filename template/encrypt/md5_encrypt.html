@@ -1,0 +1,66 @@
+{extend name="base" /}
+
+{block name="resources"}
+<!-- 添加css、字体文件文件 -->
+<style>
+    .key input{
+        width: 93%;
+        float: left;
+        margin-right: 10px;
+    }
+    .key{
+        height: auto;
+    }
+</style>
+{/block}
+
+{block name="main"}
+<div class="main">
+    <div class="main-head">
+        <span class="title">AES 加密/解密</span> <br>
+        <span class="explain">自用aes加解密</span>
+    </div>
+
+    <div class="main-content">
+        <div class="form-group">
+            <textarea class="form-control encode" rows="9" placeholder="请输入需要加密的字符串" required></textarea>
+        </div>
+        <div class="form-group key">
+            <input type="text" class="form-control decode" placeholder="结果">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" onclick="encrypt()">MD5</button>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<!-- 添加js文件或代码 -->
+<script>
+    function show(msg){
+        new $.zui.Messager(msg, {
+            icon: 'warning-sign',
+            type: 'danger'
+        }).show();
+    }
+
+    function encrypt(type) {
+        var str = $(".encode").val();
+        $.ajax({
+            type: "post",
+            url: "URL/encrypt/do_md5",
+            dataType: "json",
+            data: {str: str},
+            success: function (res) {
+                if (res.code > 0) {
+                    $(".decode").val(res.data);
+                } else {
+                    show(res.mag);
+                }
+            }
+        })
+    }
+</script>
+{/block}
