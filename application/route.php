@@ -25,6 +25,8 @@ return [
     'encrypt/do' => 'index/Encryption/doEncrypt',
     'encrypt/md5' => 'index/Encryption/md5Encrypt',
     'encrypt/do_md5' => 'index/Encryption/doEncryptMd5',
+    'encrypt/uuid' => 'index/Encryption/showUuid',
+    'encrypt/get_uuid' => 'index/Encryption/getUuid',
     // json
     'json' => 'index/Json/index',
     // markdown
