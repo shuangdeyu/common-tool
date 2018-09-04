@@ -40,7 +40,7 @@ class Encryption extends Base
     }
 
     /**
-     * 加密/解密
+     * AES加密/解密
      */
     public function doEncrypt(){
         $type = input('param.type')?input('param.type'):1; // 1加密，2解密
