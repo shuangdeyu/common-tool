@@ -13,8 +13,8 @@ return [
     '__pattern__' => [
         'name' => '\w+',
     ],
-    '[hello]'     => [
-        ':id'   => ['index/index/hello', ['method' => 'get'], ['id' => '\d+']],
+    '[hello]' => [
+        ':id' => ['index/index/hello', ['method' => 'get'], ['id' => '\d+']],
         ':name' => ['index/index/hello', ['method' => 'post']],
     ],
 
@@ -29,6 +29,10 @@ return [
     'encrypt/get_uuid' => 'index/Encryption/getUuid',
     // json
     'json' => 'index/Json/index',
+    // 时间戳
+    'timestamp' => 'index/Timestamp/index',
+    'stamp_to_time' => 'index/Timestamp/stampToTime',
+    'time_to_stamp' => 'index/Timestamp/timeToStamp',
     // markdown
     'markdown/par' => 'index/Markdown/index',
     'markdown/edit' => 'index/Markdown/edit',

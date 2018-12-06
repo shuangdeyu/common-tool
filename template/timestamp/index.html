@@ -1,0 +1,89 @@
+{extend name="base" /}
+
+{block name="resources"}
+<!-- 添加css、字体文件文件 -->
+<style>
+    .key input {
+        width: 40%;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .key {
+        height: auto;
+    }
+</style>
+{/block}
+
+{block name="main"}
+<div class="main">
+    <div class="main-head">
+        <span class="title">时间戳转换</span> <br>
+        <span class="explain">常用的时间戳转时间，时间转时间戳</span>
+    </div>
+
+    <div class="main-content">
+        <div class="form-group key">
+            <input type="text" class="form-control tp_stamp" placeholder="时间戳">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" onclick="stamp_to_time()">转换</button>
+            </div>
+            <input type="text" class="form-control tp_time" placeholder="时间">
+            <div style="clear: both"></div>
+        </div>
+
+        <div class="form-group key">
+            <input type="text" class="form-control tm_time" placeholder="时间">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" onclick="time_to_stamp()">转换</button>
+            </div>
+            <input type="text" class="form-control tm_stamp" placeholder="时间戳">
+            <div style="clear: both"></div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<!-- 添加js文件或代码 -->
+<script>
+    function show(msg) {
+        new $.zui.Messager(msg, {
+            icon: 'warning-sign',
+            type: 'danger'
+        }).show();
+    }
+
+    function stamp_to_time() {
+        $.ajax({
+            type: "post",
+            url: "URL/stamp_to_time",
+            dataType: "json",
+            data: {stamp: $(".tp_stamp").val()},
+            success: function (res) {
+                if (res.code > 0) {
+                    $(".tp_time").val(res.data);
+                } else {
+                    show(res.msg);
+                }
+            }
+        })
+    }
+
+    function time_to_stamp() {
+        $.ajax({
+            type: "post",
+            url: "URL/time_to_stamp",
+            dataType: "json",
+            data: {stamp: $(".tm_time").val()},
+            success: function (res) {
+                if (res.code > 0) {
+                    $(".tm_stamp").val(res.data);
+                } else {
+                    show(res.msg);
+                }
+            }
+        })
+    }
+</script>
+{/block}
