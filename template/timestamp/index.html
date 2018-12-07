@@ -23,6 +23,10 @@
     </div>
 
     <div class="main-content">
+        <p>
+            <span>当前：</span>
+            <span id="mytime"></span>
+        </p>
         <div class="form-group key">
             <input type="text" class="form-control tp_stamp" placeholder="时间戳">
             <div class="btn-group">
@@ -47,6 +51,17 @@
 {block name="javascript"}
 <!-- 添加js文件或代码 -->
 <script>
+    function showTime() {
+        nowtime = new Date();
+        year = nowtime.getFullYear();
+        month = nowtime.getMonth() + 1;
+        date = nowtime.getDate();
+        stamp = Math.round(nowtime / 1000);
+        document.getElementById("mytime").innerText = year + "-" + month + "-" + date + " " + nowtime.toLocaleTimeString() + " " + stamp;
+    }
+
+    setInterval("showTime()", 1000);
+
     function show(msg) {
         new $.zui.Messager(msg, {
             icon: 'warning-sign',
