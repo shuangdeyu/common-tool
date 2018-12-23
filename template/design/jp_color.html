@@ -1,0 +1,87 @@
+{extend name="base" /}
+
+{block name="resources"}
+<!-- 添加css、字体文件文件 -->
+<style>
+    ul > li {
+        list-style: none;
+        float: left;
+        font-size: 12px;
+    }
+
+    .main-content {
+        padding-bottom: 30px;
+    }
+
+    .colors {
+        margin: 0 auto;
+        padding: 10px 25px;
+    }
+
+    .colors span {
+        padding: 0 10px;
+    }
+
+    .colors a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    .color-card {
+        width: 190px;
+        height: 80px;
+        border-radius: 10px;
+        margin: 10px 7px;
+        text-align: center;
+        line-height: 80px;
+    }
+
+    .color-name {
+        font-size: 16px;
+        font-weight: 500;
+    }
+</style>
+{/block}
+
+{block name="main"}
+<div class="main">
+    <div class="main-head">
+        <span class="title">日本传统配色方案</span> <br>
+        <span class="explain">
+            原址：<a href="http://nipponcolors.com/" target="_blank">http://nipponcolors.com/</a>
+        </span>
+    </div>
+
+    <div class="main-content">
+        <div class="colors">
+            <ul>
+                {volist name='list' id='vo'}
+                <li>
+                    <a href="javascript:void(0)" onclick="change('{$vo.value}')">
+                        <div class="color-card" style="background-color: {$vo.value}">
+                            <span class="color-name">{$vo.name}</span>
+                        </div>
+                    </a>
+                    <div>
+                        <span>RGB: {$vo.rgb}</span>
+                        <span>{$vo.value}</span>
+                    </div>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<!-- 添加js文件或代码 -->
+<script>
+    function change(color) {
+        $("body").css({"transition": "all 0.5s ease-out", "background-color": color});
+        $(".main").css("background-color", "#ffffff");
+        $(".head").css("background-color", "#ffffff");
+    }
+</script>
+{/block}

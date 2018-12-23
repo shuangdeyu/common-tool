@@ -39,5 +39,7 @@ return [
     // translate
     'translate' => 'index/Translate/index',
     'translate/do' => 'index/Translate/doTranslate',
+    // 设计
+    'design/jp_color' => 'index/Design/jp_color',
 
 ];
