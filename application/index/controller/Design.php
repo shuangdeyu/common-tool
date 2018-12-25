@@ -17,6 +17,14 @@ class Design extends Base
         parent::__construct($request);
     }
 
+    // 中国传统配色
+    public function cn_color()
+    {
+        $list = config('web.cn_color');
+        $this->assign('list', $list);
+        return view('design/cn_color');
+    }
+
     // 日本传统配色
     public function jp_color()
     {
