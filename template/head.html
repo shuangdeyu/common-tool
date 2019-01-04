@@ -19,9 +19,9 @@
             <div class="collapse navbar-collapse navbar-collapse-example">
                 <!-- 一般导航项目 -->
                 <ul class="nav navbar-nav">
-                    <li ><a href="URL/index">首页</a></li>
-                    <li ><a href="URL/json">json格式校验</a></li>
-                    <li ><a href="URL/timestamp">时间戳</a></li>
+                    <li><a href="URL/index">首页</a></li>
+                    <li><a href="URL/json">json格式校验</a></li>
+                    <li><a href="URL/timestamp">时间戳</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">加密/解密<b class="caret"></b></a>
                         <ul class="dropdown-menu" role="menu">
@@ -44,14 +44,48 @@
                             <li><a href="URL/design/jp_color">日本传统配色</a></li>
                         </ul>
                     </li>
-                    <li ><a href="URL/translate">翻译</a></li>
+                    <li><a href="URL/translate">翻译</a></li>
                 </ul>
 
                 <!-- 右侧的导航项目 -->
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#" data-toggle="modal" data-target="#plugList">清单</a></li>
+                    <li class="dropdown dropdown-hover">
+                        <a href="#" data-toggle="dropdown"><i class="icon icon-camera-retro"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0)" onclick="change('#ffffff')">白</a></li>
+                            <li><a href="javascript:void(0)" onclick="change('__IMG__/skin/skin1.jpg')">晓</a></li>
+                            <li><a href="javascript:void(0)" onclick="change('__IMG__/skin/skin2.jpg')">伴</a></li>
+                            <li><a href="javascript:void(0)" onclick="change('__IMG__/skin/skin3.jpg')">王</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div><!-- END .navbar-collapse -->
+
+            <script>
+                let storage = window.localStorage;
+                $(function () {
+                    let skin = storage.getItem("skin");
+                    if (skin) {
+                        $("body").css({
+                            "transition": "all 0.5s ease-out",
+                            "background": "center / cover no-repeat fixed url(" + skin + ") #ffffff"
+                        });
+                        $(".main").css("background", "#ffffff");
+                        $(".head").css("background", "#ffffff");
+                    }
+                });
+
+                function change(url) {
+                    $("body").css({
+                        "transition": "all 0.5s ease-out",
+                        "background": "center / cover no-repeat fixed url(" + url + ") #ffffff"
+                    });
+                    $(".main").css("background", "#ffffff");
+                    $(".head").css("background", "#ffffff");
+                    storage.setItem("skin", url);
+                }
+            </script>
         </div>
     </nav>
 </div>
@@ -64,7 +98,8 @@
                     json-view, json 解析插件
                 </p>
                 <p>
-                    <a href="http://www.jq22.com/jquery-info13551" target="_blank">http://www.jq22.com/jquery-info13551</a>
+                    <a href="http://www.jq22.com/jquery-info13551"
+                       target="_blank">http://www.jq22.com/jquery-info13551</a>
                 </p>
                 <p>
                     <br/>
@@ -76,9 +111,10 @@
                     <a href="http://pandao.github.io/editor.md/" target="_blank">http://pandao.github.io/editor.md</a>
                 </p>
 
-                <p> <br/> </p>
-                <p> 百度翻译api<br/> </p>
-                <p> <a href="http://api.fanyi.baidu.com/api/trans/product/index" target="_blank">http://api.fanyi.baidu.com/api/trans/product/index</a> </p>
+                <p><br/></p>
+                <p> 百度翻译api<br/></p>
+                <p><a href="http://api.fanyi.baidu.com/api/trans/product/index" target="_blank">http://api.fanyi.baidu.com/api/trans/product/index</a>
+                </p>
             </div>
         </div>
     </div>
