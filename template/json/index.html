@@ -84,16 +84,20 @@
         //     json = JSON.parse(json);
         //     json = JSON.stringify(json);
         // }
+        reg = /[\r\n]/g; // 去除换行
+        json = json.replace(reg, '');
+        reg = /\s+/g; // 去除空格
+        json = json.replace(reg, '');
         reg = /([\{\}])/g;
         json = json.replace(reg, '\r\n$1\r\n');
         reg = /([\[\]])/g;
         json = json.replace(reg, '\r\n$1\r\n');
         reg = /(\,)/g;
         json = json.replace(reg, '$1\r\n');
-        reg = /(\r\n\r\n)/g;
-        json = json.replace(reg, '\r\n');
         reg = /\r\n\,/g;
         json = json.replace(reg, ',');
+        reg = /(\r\n\r\n)/g;
+        json = json.replace(reg, '\r\n');
         if (!options.newlineAfterColonIfBeforeBraceOrBracket) {
             reg = /\:\r\n\{/g;
             json = json.replace(reg, ':{');
@@ -105,7 +109,7 @@
             json = json.replace(reg, ':');
         }
         (json.split('\r\n')).forEach(function (node, index) {
-            //console.log(node);
+            // console.log(node);
             var i = 0,
                 indent = 0,
                 padding = '';
