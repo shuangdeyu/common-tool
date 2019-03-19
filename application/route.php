@@ -42,5 +42,4 @@ return [
     // 设计
     'design/cn_color' => 'index/Design/cn_color',
     'design/jp_color' => 'index/Design/jp_color',
-
 ];
