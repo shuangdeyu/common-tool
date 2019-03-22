@@ -32,4 +32,12 @@ class Design extends Base
         $this->assign('list', $list);
         return view('design/jp_color');
     }
+
+    // 香港地铁配色
+    public function hk_color()
+    {
+        $list = config('web.hk_color');
+        $this->assign('list', $list);
+        return view('design/hk_color');
+    }
 }
