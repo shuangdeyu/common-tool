@@ -8,8 +8,10 @@
 
 include 'jp_color.php';
 include 'cn_color.php';
+include 'hk_color.php';
 
 return [
     "jp_color" => $jpColorArr,
     "cn_color" => $cnColorArr,
+    "hk_color" => $hkColorArr,
 ];

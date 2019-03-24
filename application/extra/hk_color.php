@@ -8,352 +8,352 @@
 
 $hkColorArr = [
     [
-        'name' => "杏花邨",
-        'rgb' => "181, 25, 33",
-        'value' => "#b51921"
-    ], [
-        'name' => "太古",
-        'rgb' => "178, 16, 62",
-        'value' => "#b2103e"
-    ], [
-        'name' => "九龙湾",
-        'rgb' => "196, 24, 50",
-        'value' => "#c41832"
-    ], [
-        'name' => "将军澳",
-        'rgb' => "239, 52, 42",
-        'value' => "#ef342a"
-    ], [
-        'name' => "乌溪沙",
-        'rgb' => "168, 77, 24",
-        'value' => "#a84d18"
-    ], [
-        'name' => "宝琳",
-        'rgb' => "246, 143, 38",
-        'value' => "#f68f26"
-    ], [
-        'name' => "西湾河",
-        'rgb' => "250, 202, 7",
-        'value' => "#faca07"
-    ], [
-        'name' => "迪士尼",
-        'rgb' => "7, 89, 74",
-        'value' => "#07594a"
-    ], [
-        'name' => "石硖尾",
-        'rgb' => "75, 169, 70",
-        'value' => "#4ba946"
-    ], [
-        'name' => "马场站",
-        'rgb' => "95, 192, 167",
-        'value' => "#5fc0a7"
-    ], [
-        'name' => "大围",
-        'rgb' => "3, 118, 194",
-        'value' => "#0376c2"
-    ], [
-        'name' => "中环",
-        'rgb' => "196, 24, 50",
-        'value' => "#c41832"
-    ], [
-        'name' => "荃湾",
-        'rgb' => "196, 24, 50",
-        'value' => "#c41832"
-    ], [
-        'name' => "旺角",
-        'rgb' => "190, 50, 35",
-        'value' => "#be3223"
-    ], [
-        'name' => "红磡",
-        'rgb' => "244, 95, 124",
-        'value' => "#be3223"
-    ], [
-        'name' => "锦上路",
-        'rgb' => "209, 111, 32",
-        'value' => "#d16f20"
-    ], [
-        'name' => "太和",
-        'rgb' => "255, 208, 13",
-        'value' => "#ffd00d"
-    ], [
-        'name' => "柴湾",
-        'rgb' => "7, 103, 80",
-        'value' => "#076750"
-    ], [
-        'name' => "粉岭(fanling)",
-        'rgb' => "122, 191, 69",
-        'value' => "#7abf45"
-    ], [
-        'color' => '#75c7b9',
-        'name' => 'lok ma chau',
-        'rgb' => ''
-    ], [
-        'color' => '#077cb0',
-        'name' => 'choi hung',
-        'rgb' => ''
-    ], [
-        'color' => '#29409a',
-        'name' => 'shau kei wan',
-        'rgb' => ''
-    ], [
-        'color' => '#ee1e4f',
-        'name' => 'tsuen wan west',
-        'rgb' => ''
-    ], [
-        'color' => '#d2174a',
-        'name' => 'lai king',
-        'rgb' => ''
-    ], [
-        'color' => '#f79d8b',
-        'name' => 'long ping',
-        'rgb' => ''
-    ], [
-        'color' => '#ce7020',
-        'name' => 'austin',
-        'rgb' => ''
-    ], [
-        'color' => '#e9a519',
-        'name' => 'sheung shui',
-        'rgb' => ''
-    ], [
-        'color' => '#fddf55',
-        'name' => 'yau tong',
-        'rgb' => ''
-    ], [
-        'color' => '#076a66',
-        'name' => 'jordan',
-        'rgb' => ''
-    ], [
-        'color' => '#a7c299',
-        'name' => 'ngau tau kok',
-        'rgb' => ''
-    ], [
-        'color' => '#098ec4',
-        'name' => 'mei foo',
-        'rgb' => ''
-    ], [
-        'color' => '#89d2e3',
-        'name' => 'kennedy town',
-        'rgb' => ''
-    ], [
-        'color' => '#7572a7',
-        'name' => 'tung chung',
-        'rgb' => ''
-    ], [
-        'color' => '#f7b1bf',
-        'name' => 'sha tin wai',
-        'rgb' => ''
-    ], [
-        'color' => '#f67e2a',
-        'name' => 'north point',
-        'rgb' => ''
-    ], [
-        'color' => '#f57125',
-        'name' => 'lai chi kok',
-        'rgb' => ''
-    ], [
-        'color' => '#fbaf37',
-        'name' => 'fo tan',
-        'rgb' => ''
-    ], [
-        'color' => '#fde14e',
-        'name' => 'kwai hing',
-        'rgb' => ''
-    ], [
-        'color' => '#076c53',
-        'name' => 'kwai fong',
-        'rgb' => ''
-    ], [
-        'color' => '#b2d68c',
-        'name' => 'tai wo hau',
-        'rgb' => ''
-    ], [
-        'color' => '#8fd1cd',
-        'name' => 'tai shui hang',
-        'rgb' => ''
-    ], [
-        'color' => '#0798c7',
-        'name' => 'tuen mun',
-        'rgb' => ''
-    ], [
-        'color' => '#9597ca',
-        'name' => 'sai ying pun',
-        'rgb' => ''
-    ], [
-        'color' => '#69686d',
-        'name' => 'diamond hill',
-        'rgb' => ''
-    ], [
-        'color' => '#f47a25',
-        'name' => 'tin hau',
-        'rgb' => ''
-    ], [
-        'color' => '#fcba5d',
-        'name' => 'city one',
-        'rgb' => ''
-    ], [
-        'color' => '#f8d29d',
-        'name' => 'sheung wan',
-        'rgb' => ''
-    ], [
-        'color' => '#ffe285',
-        'name' => 'shek mun',
-        'rgb' => ''
-    ], [
-        'color' => '#077e7a',
-        'name' => 'quarry bay',
-        'rgb' => ''
-    ], [
-        'color' => '#d0e4a9',
-        'name' => 'h k u',
-        'rgb' => ''
-    ], [
-        'color' => '#81cdc1',
-        'name' => 'siu hong',
-        'rgb' => ''
-    ], [
-        'color' => '#22b6ed',
-        'name' => 'lam tin',
-        'rgb' => ''
-    ], [
-        'color' => '#b4d6f2',
-        'name' => 'heng on',
-        'rgb' => ''
-    ], [
-        'color' => '#c077af',
-        'name' => 'sha tin',
-        'rgb' => ''
-    ], [
-        'color' => '#bbbfc2',
-        'name' => 'airport',
-        'rgb' => ''
-    ], [
-        'color' => '#fed7a6',
-        'name' => 'che kung temple',
-        'rgb' => ''
-    ], [
-        'color' => '#fcae62',
-        'name' => 'tin shui wai',
-        'rgb' => ''
-    ], [
-        'color' => '#ffe901',
-        'name' => 'tsim sha tsui',
-        'rgb' => ''
-    ], [
-        'color' => '#078e82',
-        'name' => 'sham shui po',
-        'rgb' => ''
-    ], [
-        'color' => '#d7df3f',
-        'name' => 'tiu keng leng',
-        'rgb' => ''
-    ], [
-        'color' => '#89d3de',
-        'name' => 'yuen long',
-        'rgb' => ''
-    ], [
-        'color' => '#22b6ed',
-        'name' => 'heng hau',
-        'rgb' => ''
-    ], [
-        'color' => '#b295c5',
-        'name' => 'tai po market',
-        'rgb' => ''
-    ], [
-        'color' => '#c5c4c9',
-        'name' => 'kowloon',
-        'rgb' => ''
-    ], [
-        'color' => '#d1d5d8',
-        'name' => 'sunny bay',
-        'rgb' => ''
-    ], [
-        'color' => '#f2f1f6',
-        'name' => 'asia world expo',
-        'rgb' => ''
-    ], [
-        'color' => '#efe946',
-        'name' => 'nam cheong',
-        'rgb' => ''
-    ], [
-        'color' => '#fff455',
-        'name' => 'wong tai shin',
-        'rgb' => ''
-    ], [
-        'color' => '#ffe901',
-        'name' => 'east tsim sha tsui',
-        'rgb' => ''
-    ], [
-        'color' => '#4c7020',
-        'name' => 'lok fu',
-        'rgb' => ''
-    ], [
-        'color' => '#c4e0e1',
-        'name' => 'tsing yi',
-        'rgb' => ''
-    ], [
-        'color' => '#79bce7',
-        'name' => 'kowloon tong',
-        'rgb' => ''
-    ], [
-        'color' => '#b7e1fa',
-        'name' => 'university',
-        'rgb' => ''
-    ], [
-        'color' => '#c7a7d2',
-        'name' => 'ma on shan',
-        'rgb' => ''
-    ], [
-        'color' => '#e5e4e9',
-        'name' => 'yau ma tei',
-        'rgb' => ''
-    ], [
-        'color' => '#f2f1f6',
-        'name' => 'hong kong',
-        'rgb' => ''
-    ], [
-        'color' => '#f2f2f6',
-        'name' => 'kwun tong',
-        'rgb' => ''
-    ], [
-        'color' => '#1fb27f',
-        'name' => 'fortress hill',
-        'rgb' => ''
-    ], [
-        'color' => '#b5a87f',
-        'name' => 'cheung sha wan',
-        'rgb' => ''
-    ], [
-        'color' => '#07b195',
-        'name' => 'mong kok east',
-        'rgb' => ''
-    ], [
-        'color' => '#d7df3f',
-        'name' => 'wan chai',
-        'rgb' => ''
-    ], [
-        'color' => '#6dade2',
-        'name' => 'olympic',
-        'rgb' => ''
-    ], [
-        'color' => '#4dc7ec',
-        'name' => 'admiralty',
-        'rgb' => ''
-    ], [
-        'color' => '#a8b7d8',
-        'name' => 'LOHAS park',
-        'rgb' => ''
-    ], [
-        'color' => '#b8a1a9',
-        'name' => 'prince edward',
-        'rgb' => ''
-    ], [
-        'color' => '#f8c9cb',
-        'name' => 'causeway bay',
-        'rgb' => ''
-    ], [
-        'color' => '#f2f1f6',
-        'name' => 'lo wu',
-        'rgb' => ''
-    ]
+        "name" => "杏花邨",
+        "rgb" => "181, 25, 33",
+        "value" => "#b51921"
+    ], [
+        "name" => "太古",
+        "rgb" => "178, 16, 62",
+        "value" => "#b2103e"
+    ], [
+        "name" => "九龙湾",
+        "rgb" => "196, 24, 50",
+        "value" => "#c41832"
+    ], [
+        "name" => "将军澳",
+        "rgb" => "239, 52, 42",
+        "value" => "#ef342a"
+    ], [
+        "name" => "乌溪沙",
+        "rgb" => "168, 77, 24",
+        "value" => "#a84d18"
+    ], [
+        "name" => "宝琳",
+        "rgb" => "246, 143, 38",
+        "value" => "#f68f26"
+    ], [
+        "name" => "西湾河",
+        "rgb" => "250, 202, 7",
+        "value" => "#faca07"
+    ], [
+        "name" => "迪士尼",
+        "rgb" => "7, 89, 74",
+        "value" => "#07594a"
+    ], [
+        "name" => "石硖尾",
+        "rgb" => "75, 169, 70",
+        "value" => "#4ba946"
+    ], [
+        "name" => "马场站",
+        "rgb" => "95, 192, 167",
+        "value" => "#5fc0a7"
+    ], [
+        "name" => "大围",
+        "rgb" => "3, 118, 194",
+        "value" => "#0376c2"
+    ], [
+        "name" => "中环",
+        "rgb" => "196, 24, 50",
+        "value" => "#c41832"
+    ], [
+        "name" => "荃湾",
+        "rgb" => "196, 24, 50",
+        "value" => "#c41832"
+    ], [
+        "name" => "旺角",
+        "rgb" => "190, 50, 35",
+        "value" => "#be3223"
+    ], [
+        "name" => "红磡",
+        "rgb" => "244, 95, 124",
+        "value" => "#be3223"
+    ], [
+        "name" => "锦上路",
+        "rgb" => "209, 111, 32",
+        "value" => "#d16f20"
+    ], [
+        "name" => "太和",
+        "rgb" => "255, 208, 13",
+        "value" => "#ffd00d"
+    ], [
+        "name" => "柴湾",
+        "rgb" => "7, 103, 80",
+        "value" => "#076750"
+    ], [
+        "name" => "粉岭(fanling)",
+        "rgb" => "122, 191, 69",
+        "value" => "#7abf45"
+    ], [
+        "value" => "#75c7b9",
+        "name" => "落马洲",
+        "rgb" => "117, 199, 185"
+    ], [
+        "value" => "#077cb0",
+        "name" => "彩虹站",
+        "rgb" => "7, 124, 176"
+    ], [
+        "value" => "#29409a",
+        "name" => "筲箕湾",
+        "rgb" => "41, 64, 154"
+    ], [
+        "value" => "#ee1e4f",
+        "name" => "荃湾西",
+        "rgb" => "238, 30, 79"
+    ], [
+        "value" => "#d2174a",
+        "name" => "荔景",
+        "rgb" => ""
+    ], [
+        "value" => "#f79d8b",
+        "name" => "朗屏",
+        "rgb" => "210, 23, 74"
+    ], [
+        "value" => "#ce7020",
+        "name" => "奥斯丁",
+        "rgb" => "206, 112, 32"
+    ], [
+        "value" => "#e9a519",
+        "name" => "上水",
+        "rgb" => "233, 165, 25"
+    ], [
+        "value" => "#fddf55",
+        "name" => "油塘",
+        "rgb" => "253, 223, 85"
+    ], [
+        "value" => "#076a66",
+        "name" => "佐敦",
+        "rgb" => "7, 106, 102"
+    ], [
+        "value" => "#a7c299",
+        "name" => "牛頭角",
+        "rgb" => "167, 194, 153"
+    ], [
+        "value" => "#098ec4",
+        "name" => "美孚站",
+        "rgb" => "9, 142, 196"
+    ], [
+        "value" => "#89d2e3",
+        "name" => "坚尼地城",
+        "rgb" => "137, 210, 227"
+    ], [
+        "value" => "#7572a7",
+        "name" => "东涌",
+        "rgb" => "117, 114, 167"
+    ], [
+        "value" => "#f7b1bf",
+        "name" => "沙田围",
+        "rgb" => "247, 177, 191"
+    ], [
+        "value" => "#f67e2a",
+        "name" => "北角",
+        "rgb" => "246, 126, 42"
+    ], [
+        "value" => "#f57125",
+        "name" => "荔枝角",
+        "rgb" => "245, 113, 37"
+    ], [
+        "value" => "#fbaf37",
+        "name" => "火炭",
+        "rgb" => "251, 175, 55"
+    ], [
+        "value" => "#fde14e",
+        "name" => "葵兴",
+        "rgb" => "253, 225, 78"
+    ], [
+        "value" => "#076c53",
+        "name" => "葵芳",
+        "rgb" => "7, 108, 83"
+    ], [
+        "value" => "#b2d68c",
+        "name" => "大窝口",
+        "rgb" => "178, 214, 140"
+    ], [
+        "value" => "#8fd1cd",
+        "name" => "大水坑",
+        "rgb" => "143, 209, 205"
+    ], [
+        "value" => "#0798c7",
+        "name" => "屯门",
+        "rgb" => "7, 152, 199"
+    ], [
+        "value" => "#9597ca",
+        "name" => "西营盘",
+        "rgb" => "149, 151, 202"
+    ], [
+        "value" => "#69686d",
+        "name" => "钻石山",
+        "rgb" => "105, 104, 109"
+    ], [
+        "value" => "#f47a25",
+        "name" => "天后",
+        "rgb" => "244, 122, 37"
+    ], [
+        "value" => "#fcba5d",
+        "name" => "第一城",
+        "rgb" => "252, 186, 93"
+    ], [
+        "value" => "#f8d29d",
+        "name" => "上环",
+        "rgb" => "248, 210, 157"
+    ], [
+        "value" => "#ffe285",
+        "name" => "石门",
+        "rgb" => "255, 226, 133"
+    ], [
+        "value" => "#077e7a",
+        "name" => "鰂鱼涌",
+        "rgb" => "7, 126, 122"
+    ], [
+        "value" => "#d0e4a9",
+        "name" => "h k u",
+        "rgb" => "208, 228, 169"
+    ], [
+        "value" => "#81cdc1",
+        "name" => "兆康",
+        "rgb" => "129, 205, 193"
+    ], [
+        "value" => "#22b6ed",
+        "name" => "蓝田",
+        "rgb" => "34, 182, 237"
+    ], [
+        "value" => "#b4d6f2",
+        "name" => "恒安",
+        "rgb" => "180, 214, 242"
+    ], [
+        "value" => "#c077af",
+        "name" => "沙田",
+        "rgb" => "192, 119, 175"
+    ], [
+        "value" => "#bbbfc2",
+        "name" => "航空站",
+        "rgb" => "187, 191, 194"
+    ], [
+        "value" => "#fed7a6",
+        "name" => "车公庙",
+        "rgb" => "254, 215, 166"
+    ], [
+        "value" => "#fcae62",
+        "name" => "天水围",
+        "rgb" => "252, 174, 98"
+    ], [
+        "value" => "#ffe901",
+        "name" => "尖沙嘴",
+        "rgb" => "255, 233, 1"
+    ], [
+        "value" => "#078e82",
+        "name" => "深水埗",
+        "rgb" => "7, 142, 130"
+    ], [
+        "value" => "#d7df3f",
+        "name" => "调景岭",
+        "rgb" => "215, 223, 63"
+    ], [
+        "value" => "#89d3de",
+        "name" => "元朗",
+        "rgb" => "137, 211, 222"
+    ], [
+        "value" => "#22b6ed",
+        "name" => "坑口",
+        "rgb" => "34, 182, 237"
+    ], [
+        "value" => "#b295c5",
+        "name" => "大埔墟",
+        "rgb" => "178, 149, 197"
+    ], [
+        "value" => "#c5c4c9",
+        "name" => "九龙",
+        "rgb" => "197, 196, 201"
+    ], [
+        "value" => "#d1d5d8",
+        "name" => "新澳",
+        "rgb" => "209, 213, 216"
+    ], [
+        "value" => "#f2f1f6",
+        "name" => "国际博览馆",
+        "rgb" => "242, 241, 246"
+    ], [
+        "value" => "#efe946",
+        "name" => "南昌",
+        "rgb" => "239, 233, 70"
+    ], [
+        "value" => "#fff455",
+        "name" => "黄大仙",
+        "rgb" => "255, 244, 85"
+    ], [
+        "value" => "#ffe901",
+        "name" => "尖东",
+        "rgb" => "255, 233, 1"
+    ], [
+        "value" => "#4c7020",
+        "name" => "乐富",
+        "rgb" => "76, 112, 32"
+    ], [
+        "value" => "#c4e0e1",
+        "name" => "青衣",
+        "rgb" => "196, 224, 225"
+    ], [
+        "value" => "#79bce7",
+        "name" => "九龙塘",
+        "rgb" => "121, 188, 231"
+    ], [
+        "value" => "#b7e1fa",
+        "name" => "大学",
+        "rgb" => "183, 225, 250"
+    ], [
+        "value" => "#c7a7d2",
+        "name" => "马鞍山",
+        "rgb" => "199, 167, 210"
+    ], [
+        "value" => "#e5e4e9",
+        "name" => "油麻地",
+        "rgb" => "229, 228, 233"
+    ], [
+        "value" => "#f2f1f6",
+        "name" => "香港",
+        "rgb" => "242, 241, 246"
+    ], [
+        "value" => "#f2f2f6",
+        "name" => "观塘",
+        "rgb" => "242, 242, 246"
+    ], [
+        "value" => "#1fb27f",
+        "name" => "炮台山",
+        "rgb" => "31, 178, 127"
+    ], [
+        "value" => "#b5a87f",
+        "name" => "长沙湾",
+        "rgb" => "181, 168, 127"
+    ], [
+        "value" => "#07b195",
+        "name" => "旺角东站",
+        "rgb" => "7, 177, 149"
+    ], [
+        "value" => "#d7df3f",
+        "name" => "湾仔",
+        "rgb" => "215, 223, 63"
+    ], [
+        "value" => "#6dade2",
+        "name" => "奥运站",
+        "rgb" => "109, 173, 226"
+    ], [
+        "value" => "#4dc7ec",
+        "name" => "金钟",
+        "rgb" => "77, 199, 236"
+    ], [
+        "value" => "#a8b7d8",
+        "name" => "康城",
+        "rgb" => "168, 183, 216"
+    ], [
+        "value" => "#b8a1a9",
+        "name" => "太子",
+        "rgb" => "184, 161, 169"
+    ], [
+        "value" => "#f8c9cb",
+        "name" => "铜锣湾",
+        "rgb" => "248, 201, 203"
+    ], [
+        "value" => "#f2f1f6",
+        "name" => "罗湖",
+        "rgb" => "242, 241, 246"
+    ],
 ];
