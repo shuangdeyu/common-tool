@@ -21,29 +21,31 @@ class Translate extends Base
     /**
      * 界面展示
      */
-    public function index(){
+    public function index()
+    {
         return view('translate/index');
     }
 
     /**
      * 执行翻译操作
      */
-    public function doTranslate(){
+    public function doTranslate()
+    {
         $input = input('param.input');
         $from = input('param.from');
         $to = input('param.to');
 
-        $ret = $this->translate($input,$from,$to);
-        return showRes(1,'success','json',$ret);
+        $ret = $this->translate($input, $from, $to);
+        return showRes(1, 'success', 'json', $ret);
     }
 
-//翻译入口
+    //翻译入口
     public function translate($query, $from, $to)
     {
         $args = array(
             'q' => $query,
             'appid' => APP_ID,
-            'salt' => rand(10000,99999),
+            'salt' => rand(10000, 99999),
             'from' => $from,
             'to' => $to,
 
@@ -54,7 +56,7 @@ class Translate extends Base
         return $ret;
     }
 
-//加密
+    //加密
     public function buildSign($query, $appID, $salt, $secKey)
     {/*{{{*/
         $str = $appID . $query . $salt . $secKey;
@@ -62,17 +64,15 @@ class Translate extends Base
         return $ret;
     }/*}}}*/
 
-//发起网络请求
-    public function call($url, $args=null, $method="post", $testflag = 0, $timeout = CURL_TIMEOUT, $headers=array())
+    //发起网络请求
+    public function call($url, $args = null, $method = "post", $testflag = 0, $timeout = CURL_TIMEOUT, $headers = array())
     {/*{{{*/
         $ret = false;
         $i = 0;
-        while($ret === false)
-        {
-            if($i > 1)
+        while ($ret === false) {
+            if ($i > 1)
                 break;
-            if($i > 0)
-            {
+            if ($i > 0) {
                 sleep(1);
             }
             $ret = $this->callOnce($url, $args, $method, false, $timeout, $headers);
@@ -81,26 +81,19 @@ class Translate extends Base
         return $ret;
     }/*}}}*/
 
-    public function callOnce($url, $args=null, $method="post", $withCookie = false, $timeout = CURL_TIMEOUT, $headers=array())
+    public function callOnce($url, $args = null, $method = "post", $withCookie = false, $timeout = CURL_TIMEOUT, $headers = array())
     {/*{{{*/
         $ch = curl_init();
-        if($method == "post")
-        {
+        if ($method == "post") {
             $data = $this->convert($args);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             curl_setopt($ch, CURLOPT_POST, 1);
-        }
-        else
-        {
+        } else {
             $data = $this->convert($args);
-            if($data)
-            {
-                if(stripos($url, "?") > 0)
-                {
+            if ($data) {
+                if (stripos($url, "?") > 0) {
                     $url .= "&$data";
-                }
-                else
-                {
+                } else {
                     $url .= "?$data";
                 }
             }
@@ -108,12 +101,10 @@ class Translate extends Base
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        if(!empty($headers))
-        {
+        if (!empty($headers)) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         }
-        if($withCookie)
-        {
+        if ($withCookie) {
             curl_setopt($ch, CURLOPT_COOKIEJAR, $_COOKIE);
         }
         $r = curl_exec($ch);
@@ -124,20 +115,14 @@ class Translate extends Base
     public function convert(&$args)
     {/*{{{*/
         $data = '';
-        if (is_array($args))
-        {
-            foreach ($args as $key=>$val)
-            {
-                if (is_array($val))
-                {
-                    foreach ($val as $k=>$v)
-                    {
-                        $data .= $key.'['.$k.']='.rawurlencode($v).'&';
+        if (is_array($args)) {
+            foreach ($args as $key => $val) {
+                if (is_array($val)) {
+                    foreach ($val as $k => $v) {
+                        $data .= $key . '[' . $k . ']=' . rawurlencode($v) . '&';
                     }
-                }
-                else
-                {
-                    $data .="$key=".rawurlencode($val)."&";
+                } else {
+                    $data .= "$key=" . rawurlencode($val) . "&";
                 }
             }
             return trim($data, "&");
