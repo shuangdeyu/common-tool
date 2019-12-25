@@ -29,6 +29,9 @@ return [
     'encrypt/get_uuid' => 'index/Encryption/getUuid',
     // json
     'json' => 'index/Json/index',
+    // 字符串
+    'str/nonce' => 'index/Json/nonceStr',
+    'str/get_nonce' => 'index/Json/getNonceStr',
     // 时间戳
     'timestamp' => 'index/Timestamp/index',
     'stamp_to_time' => 'index/Timestamp/stampToTime',

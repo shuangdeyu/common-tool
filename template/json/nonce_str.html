@@ -1,0 +1,65 @@
+{extend name="base" /}
+
+{block name="resources"}
+<!-- 添加css、字体文件文件 -->
+<style>
+    .key input {
+        width: 70%;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .key {
+        height: auto;
+    }
+</style>
+{/block}
+
+{block name="main"}
+<div class="main">
+    <div class="main-head">
+        <span class="title">获取随机字符串,范围 </span> <br>
+        <span class="explain"></span>
+    </div>
+
+    <div class="main-content">
+        <div class="form-group key">
+            <input type="text" class="form-control len" placeholder="长度" style="width: 20%" value="15">
+            <input type="text" class="form-control decode" placeholder="结果" maxlength="50">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" onclick="encrypt()">生成</button>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<!-- 添加js文件或代码 -->
+<script>
+    function show(msg) {
+        new $.zui.Messager(msg, {
+            icon: 'warning-sign',
+            type: 'danger'
+        }).show();
+    }
+
+    function encrypt(type) {
+        var str = $(".len").val();
+        $.ajax({
+            type: "post",
+            url: "URL/str/get_nonce",
+            dataType: "json",
+            data: {len: str},
+            success: function (res) {
+                if (res.code > 0) {
+                    $(".decode").val(res.data);
+                } else {
+                    show(res.msg);
+                }
+            }
+        })
+    }
+</script>
+{/block}
