@@ -40,4 +40,12 @@ class Design extends Base
         $this->assign('list', $list);
         return view('design/hk_color');
     }
+
+    // switch配色大全
+    public function ns_color()
+    {
+        $list = config('web.ns_color');
+        $this->assign('list', $list);
+        return view('design/ns_color');
+    }
 }
