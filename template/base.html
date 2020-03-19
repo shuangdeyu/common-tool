@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="Shortcut Icon" href="__IMG__/favicon.ico" />
+    <link rel="Shortcut Icon" href="__IMG__/favicon.ico"/>
     <title>小工具</title>
-    <meta name="keywords" content="" />
+    <meta name="keywords" content=""/>
     <meta name="description" content=""/>
 
     <link href="__ZUI__/css/zui.min.css" rel="stylesheet">
@@ -15,17 +15,19 @@
     <!-- ZUI Javascript组件 -->
     <script src="__ZUI__/js/zui.min.js"></script>
 
+    <link rel='stylesheet' href='__CSS__/nprogress.css'>
+
     {block name="resources"}
     <!-- 添加css、字体文件文件 -->
     {/block}
 
 </head>
-<body >
+<body>
 <!--<div class="" style="width: 75%;margin: 0 auto;">-->
 <div class="container-fixed">
     <!-- 头部 -->
     {block name="head"}
-        {include file='head' /}
+    {include file='head' /}
     {/block}
 
     <!-- 内容展示 -->
@@ -37,11 +39,24 @@
 
     <!-- 底部 -->
     {block name="footer"}
-        {include file='footer' /}
+    {include file='footer' /}
     {/block}
 </div>
 
 <!-- js资源 -->
+<script src='__JS__/nprogress.js'></script>
+<script>
+    $('body').show();
+    $('.version').text(NProgress.version);
+    NProgress.start();
+
+    window.onload = function () {
+        setTimeout(function () {
+            NProgress.done();
+            $('.fade').removeClass('out');
+        }, 1000);
+    }
+</script>
 {block name="javascript"}
 <!-- 添加js文件或代码 -->
 {/block}
