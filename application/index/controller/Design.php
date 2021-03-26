@@ -48,4 +48,12 @@ class Design extends Base
         $this->assign('list', $list);
         return view('design/ns_color');
     }
+
+    // 配色收藏
+    public function collect_color()
+    {
+        $list = config('web.collect_color');
+        $this->assign('list', $list);
+        return view('design/collect_color');
+    }
 }
