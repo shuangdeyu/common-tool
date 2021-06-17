@@ -1,0 +1,76 @@
+{extend name="base" /}
+
+{block name="resources"}
+<!-- 添加css、字体文件文件 -->
+<style>
+    #MapContainer {
+        width: 100%;
+        height: 500px;
+    }
+
+    .key input {
+        width: 33%;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .key {
+        height: auto;
+    }
+</style>
+{/block}
+
+{block name="main"}
+<div class="main">
+    <div class="main-head">
+        <span class="title">高德地图-根据经纬度获取地理位置</span> <br>
+        <span class="explain">经纬度是GPS坐标</span>
+    </div>
+
+    <div class="main-content">
+        <div class="form-group key">
+            <input type="text" class="form-control decode" id="longitude" placeholder="经度" value="119.998881">
+            <input type="text" class="form-control decode" id="latitude" placeholder="纬度" value="30.279751">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" onclick="coords_switch()">搜索</button>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+
+        <div id="MapContainer"></div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<!-- 添加js文件或代码 -->
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=75dada96562284ecd19364d8284f320a"></script>
+<script>
+    function coords_switch() {
+        var gps = [parseFloat($("#longitude").val()), parseFloat($("#latitude").val())];
+        AMap.convertFrom(gps, 'gps', function (status, result) {
+            if (result.info === 'ok') {
+                var lnglats = result.locations; // Array.<LngLat>
+
+                var map = new AMap.Map('MapContainer', {
+                    resizeEnable: true, //是否监控地图容器尺寸变化
+                    zoom: 17, //初始化地图层级
+                    center: [lnglats[0].lng, lnglats[0].lat] //初始化地图中心点
+                });
+
+                var marker = new AMap.Marker({
+                    position: new AMap.LngLat(lnglats[0].lng, lnglats[0].lat),
+                    offset: new AMap.Pixel(-10, -10),
+                });
+                map.add(marker);
+            }
+        });
+    }
+
+    var map = new AMap.Map('MapContainer', {
+        resizeEnable: true, //是否监控地图容器尺寸变化
+        zoom: 11, //初始化地图层级
+        center: [116.397428, 39.90923] //初始化地图中心点
+    });
+</script>
+{/block}

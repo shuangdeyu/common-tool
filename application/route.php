@@ -48,4 +48,6 @@ return [
     'design/hk_color' => 'index/Design/hk_color',
     'design/ns_color' => 'index/Design/ns_color',
     'design/collect_color' => 'index/Design/collect_color',
+    // translate
+    'map' => 'index/Map/gao_coords',
 ];
